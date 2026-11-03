@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Result Management System</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container-md mb-5 row">
+      <p class="h1 text-center my-5">Student Result Management System</p>
+      <form class="border px-5 py-5 border-5 col-md-8" style="margin: auto">
+        <div class="mb-3 row d-flex align-items-center">
+          <div class="col-md-3">
+            <label for="student-name" class="form-label col-3 w-100"
+              >Student name:
+            </label>
+          </div>
+          <div class="col-md-7">
+            <input
+              type="text"
+              class="form-control"
+              id="inputname"
+              placeholder="Enter your name"
+            />
+          </div>
+          <div class="col">
+            <span class="custom-text" title="Name can't be empty"></span>
+          </div>
+        </div>
+
+        <div class="mb-3 row d-flex align-items-center">
+          <div class="col-3">
+            <label for="bangla" class="form-label w-100">Bangla: </label>
+          </div>
+          <div class="col-sm-5">
+            <input
+              type="number"
+              placeholder="(0-100)"
+              class="form-control"
+              id="inputscorebangla"
+              min="0"
+              max="100"
+              step="1"
+            />
+          </div>
+          <div class="col">
+            <span class="custom-text" title="Invalid mark"></span>
+          </div>
+        </div>
+        <div class="mb-3 row d-flex align-items-center">
+          <div class="col-3">
+            <label for="english" class="form-label w-1">English: </label>
+          </div>
+          <div class="col-sm-5">
+            <input
+              type="number"
+              placeholder="(0-100)"
+              class="form-control"
+              id="inputscoreenglish"
+              min="0"
+              max="100"
+              step="1"
+            />
+          </div>
+          <div class="col">
+            <span class="custom-text" title="Invalid mark"></span>
+          </div>
+        </div>
+        <div class="mb-3 row d-flex align-items-center">
+          <div class="col-3">
+            <label for="math" class="form-label w-100">Math: </label>
+          </div>
+          <div class="col-sm-5">
+            <input
+              type="number"
+              placeholder="(0-100)"
+              class="form-control"
+              id="inputscoremath"
+              min="0"
+              max="100"
+              step="1"
+            />
+          </div>
+          <div class="col">
+            <span class="custom-text" title="Invalid mark"></span>
+          </div>
+        </div>
+        <div class="mb-3 row d-flex align-items-center">
+          <div class="col-3">
+            <label for="science" class="form-label w-100">Science: </label>
+          </div>
+          <div class="col-sm-5">
+            <input
+              type="number"
+              placeholder="(0-100)"
+              class="form-control"
+              id="inputscorescience"
+              min="0"
+              max="100"
+              step="1"
+            />
+          </div>
+          <div class="col">
+            <span class="custom-text" title="Invalid mark"></span>
+          </div>
+        </div>
+        <div class="mb-3 row d-flex align-items-center">
+          <div class="col-3">
+            <label for="ict" class="form-label w-100">ICT: </label>
+          </div>
+          <div class="col-sm-5">
+            <input
+              type="number"
+              placeholder="(0-100)"
+              class="form-control"
+              id="inputscoreict"
+              min="0"
+              max="100"
+              step="1"
+            />
+          </div>
+          <div class="col">
+            <span class="custom-text" title="Invalid mark"></span>
+          </div>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="w-100 btn btn-primary d-block mt-5 mx-auto"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          onclick="checkResult()"
+        >
+          Check Result
+        </button>
+      </form>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Your Result
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <!-- modal output body -->
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-sm-5"><h4>Name:</h4></div>
+                <div class="col">
+                  <h4 id="oname"></h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5"><h4>Total marks:</h4></div>
+                <div class="col">
+                  <h4>
+                    <span id="otmarks"></span>
+                    /500
+                  </h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5"><h4>Average marks:</h4></div>
+                <div class="col">
+                  <h4><span id="oavg"></span>/100</h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5"><h4>Final grade:</h4></div>
+                <div class="col">
+                  <h4 id="ofinalgrade"></h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5"><h4>Status:</h4></div>
+                <div class="col">
+                  <h4 id="ostatus"></h4>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

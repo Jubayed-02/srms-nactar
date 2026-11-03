@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(44, 43, 43);
+}
+.h1 {
+  color: white;
+}
+form {
+  background: #fff;
+  border-radius: 5%;
+  box-shadow: 5px 5px rgba(90, 132, 72, 0.351);
+}
+
+.invalid-input {
+  border: 2px solid red;
+}
+.custom-text {
+  color: red;
+  text-align: right;
+  cursor: pointer;
+}
