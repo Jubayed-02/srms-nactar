@@ -31,31 +31,25 @@ function checkResult() {
   let invalid_text = document.getElementsByClassName("custom-text");
   switch (true) {
     case !name.trim():
-      // window.alert("Please Enter your full name");
       valid = false;
       invalid_text[0].textContent = "!";
 
     case valid_bangla:
-      // window.alert("Invalid input in Bangla");
       invalid_text[1].textContent = "!";
 
       valid = false;
     case valid_english:
-      // window.alert("Invalid input in English");
       invalid_text[2].textContent = "!";
       valid = false;
     case valid_math:
-      // window.alert("Invalid input in Math");
       invalid_text[3].textContent = "!";
 
       valid = false;
     case valid_science:
-      // window.alert("Invalid input in Science");
       invalid_text[4].textContent = "!";
 
       valid = false;
     case valid_ict:
-      // window.alert("Invalid input in ICT");
       invalid_text[5].textContent = "!";
 
       valid = false;
