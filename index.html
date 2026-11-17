@@ -10,14 +10,14 @@
   <body>
     <div class="container-md mb-5 row">
       <p class="h1 text-center my-5">Student Result Management System</p>
-      <form class="border px-5 py-5 border-5 col-md-8" style="margin: auto">
+      <form class="px-5 py-5 col-md-8" style="margin: auto">
         <div class="mb-3 row d-flex align-items-center">
           <div class="col-md-3">
             <label for="student-name" class="form-label col-3 w-100"
               >Student name:
             </label>
           </div>
-          <div class="col-md-7">
+          <div class="col-md-6">
             <input
               type="text"
               class="form-control"
@@ -129,6 +129,7 @@
         <!-- Button trigger modal -->
         <button
           type="button"
+          id="myButton"
           class="w-100 btn btn-primary d-block mt-5 mx-auto"
           onclick="checkResult()"
         >
@@ -152,9 +153,10 @@
               </h1>
               <button
                 type="button"
-                class="btn-close"
+                class="btn-close btn-close-white"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                onclick="reset()"
               ></button>
             </div>
 
@@ -197,8 +199,9 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-success"
                 data-bs-dismiss="modal"
+                onclick="reset()"
               >
                 Close
               </button>
