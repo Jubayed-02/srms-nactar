@@ -1,6 +1,14 @@
+// global variables
+let valid;
+let total;
+let avg;
+let grade;
+const mymodal = document.getElementById("exampleModal");
+const modal = new bootstrap.Modal(mymodal);
+
+// provided by bootstrap to focus the modal
 const myModal = document.getElementById("myModal");
 const myInput = document.getElementById("myInput");
-
 myModal.addEventListener("shown.bs.modal", () => {
   myInput.focus();
 });
@@ -24,35 +32,50 @@ function checkResult() {
   const invalid_math = !math || math > 100;
   const invalid_science = !science || science > 100;
   const invalid_ict = !ict || ict > 100;
-  let valid = true;
-  let total;
-  let avg;
-  let grade;
+
   let invalid_text = document.getElementsByClassName("custom-text");
-  switch (true) {
-    case !name.trim():
-      valid = false;
-      invalid_text[0].textContent = "!";
-
-    case invalid_bangla:
-      invalid_text[1].textContent = "!";
-
-      valid = false;
-    case invalid_english:
-      invalid_text[2].textContent = "!";
-      valid = false;
-    case invalid_math:
-      invalid_text[3].textContent = "!";
-
-      valid = false;
-    case invalid_science:
-      invalid_text[4].textContent = "!";
-
-      valid = false;
-    case invalid_ict:
-      invalid_text[5].textContent = "!";
-
-      valid = false;
+  // input authentication
+  if (!name.trim()) {
+    invalid_text[0].textContent = "!";
+    valid = false;
+  } else {
+    invalid_text[0].textContent = "";
+    valid = true;
+  }
+  if (invalid_bangla) {
+    invalid_text[1].textContent = "!";
+    valid = false;
+  } else {
+    invalid_text[1].textContent = "";
+    valid = true;
+  }
+  if (invalid_english) {
+    invalid_text[2].textContent = "!";
+    valid = false;
+  } else {
+    invalid_text[2].textContent = "";
+    valid = true;
+  }
+  if (invalid_math) {
+    invalid_text[3].textContent = "!";
+    valid = false;
+  } else {
+    invalid_text[3].textContent = "";
+    valid = true;
+  }
+  if (invalid_science) {
+    invalid_text[4].textContent = "!";
+    valid = false;
+  } else {
+    invalid_text[4].textContent = "";
+    valid = true;
+  }
+  if (invalid_ict) {
+    invalid_text[5].textContent = "!";
+    valid = false;
+  } else {
+    invalid_text[5].textContent = "";
+    valid = true;
   }
   // valid or invalid
 
@@ -120,4 +143,11 @@ function checkResult() {
   output_avg.textContent = avg;
   output_grade.textContent = grade;
   output_status.textContent = fail ? "Failed" : "Passed";
+
+  if (valid) {
+    // only now open the modal
+
+    modal.show();
+  }
 }
+document.getElementById("myButton").addEventListener("click", checkResult);
