@@ -1,19 +1,13 @@
 // global variables
-let valid;
+
 let total;
 let avg;
 let grade;
 const mymodal = document.getElementById("exampleModal");
 const modal = new bootstrap.Modal(mymodal);
 
-// provided by bootstrap to focus the modal
-const myModal = document.getElementById("myModal");
-const myInput = document.getElementById("myInput");
-myModal.addEventListener("shown.bs.modal", () => {
-  myInput.focus();
-});
-
 function checkResult() {
+  let valid = true;
   // input fields
   const name = document.getElementById("inputname").value;
   const bangla = parseInt(document.getElementById("inputscorebangla").value);
@@ -36,46 +30,40 @@ function checkResult() {
   let invalid_text = document.getElementsByClassName("custom-text");
   // input authentication
   if (!name.trim()) {
-    invalid_text[0].textContent = "!";
+    invalid_text[0].textContent = "Enter your full name";
     valid = false;
   } else {
     invalid_text[0].textContent = "";
-    valid = true;
   }
   if (invalid_bangla) {
-    invalid_text[1].textContent = "!";
+    invalid_text[1].textContent = "Score must be in range (1-100)";
     valid = false;
   } else {
     invalid_text[1].textContent = "";
-    valid = true;
   }
   if (invalid_english) {
-    invalid_text[2].textContent = "!";
+    invalid_text[2].textContent = "Score must be in range (1-100)";
     valid = false;
   } else {
     invalid_text[2].textContent = "";
-    valid = true;
   }
   if (invalid_math) {
-    invalid_text[3].textContent = "!";
+    invalid_text[3].textContent = "Score must be in range (1-100)";
     valid = false;
   } else {
     invalid_text[3].textContent = "";
-    valid = true;
   }
   if (invalid_science) {
-    invalid_text[4].textContent = "!";
+    invalid_text[4].textContent = "Score must be in range (1-100)";
     valid = false;
   } else {
     invalid_text[4].textContent = "";
-    valid = true;
   }
   if (invalid_ict) {
-    invalid_text[5].textContent = "!";
+    invalid_text[5].textContent = "Score must be in range (1-100)";
     valid = false;
   } else {
     invalid_text[5].textContent = "";
-    valid = true;
   }
   // valid or invalid
 
@@ -149,5 +137,8 @@ function checkResult() {
 
     modal.show();
   }
+}
+function reset() {
+  location.reload();
 }
 document.getElementById("myButton").addEventListener("click", checkResult);
