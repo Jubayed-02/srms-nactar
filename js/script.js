@@ -19,11 +19,11 @@ function checkResult() {
   const ict = parseFloat(document.getElementById("inputscoreict").value);
 
   // input validation
-  const valid_bangla = !bangla || 0 >= bangla || bangla > 100;
-  const valid_english = !english || 0 >= english || english > 100;
-  const valid_math = !math || math > 100;
-  const valid_science = !science || science > 100;
-  const valid_ict = !ict || ict > 100;
+  const invalid_bangla = !bangla || 0 >= bangla || bangla > 100;
+  const invalid_english = !english || 0 >= english || english > 100;
+  const invalid_math = !math || math > 100;
+  const invalid_science = !science || science > 100;
+  const invalid_ict = !ict || ict > 100;
   let valid = true;
   let total;
   let avg;
@@ -34,22 +34,22 @@ function checkResult() {
       valid = false;
       invalid_text[0].textContent = "!";
 
-    case valid_bangla:
+    case invalid_bangla:
       invalid_text[1].textContent = "!";
 
       valid = false;
-    case valid_english:
+    case invalid_english:
       invalid_text[2].textContent = "!";
       valid = false;
-    case valid_math:
+    case invalid_math:
       invalid_text[3].textContent = "!";
 
       valid = false;
-    case valid_science:
+    case invalid_science:
       invalid_text[4].textContent = "!";
 
       valid = false;
-    case valid_ict:
+    case invalid_ict:
       invalid_text[5].textContent = "!";
 
       valid = false;
