@@ -5,6 +5,9 @@ let avg;
 let grade;
 const mymodal = document.getElementById("exampleModal");
 const modal = new bootstrap.Modal(mymodal);
+// const modal = document.getElementById("exampleModal");
+
+mymodal.addEventListener("hidden.bs.modal", reset);
 
 function checkResult() {
   let valid = true;
